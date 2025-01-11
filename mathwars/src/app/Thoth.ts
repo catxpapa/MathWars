@@ -8,7 +8,7 @@ export class Thoth {
   difficulty: number;
   points: number;
   penalty: number;
-  private correctAnswer: number | null; // Specify a more specific type
+  protected correctAnswer: object;
 
   /**
    * Constructor to initialize the Thoth class.
@@ -24,30 +24,27 @@ export class Thoth {
     this.difficulty = difficulty;
     this.points = points;
     this.penalty = penalty;
-    this.correctAnswer = null;
+    this.correctAnswer = new Object(null);
   }
 
   /**
    * Method to generate a question.
    * This method should be overridden by subclasses to provide specific question logic.
+   * @param args - Additional arguments for generating the question.
    * @returns An object representing the question.
    */
-  generateQuestion(): { questionText: string; options: string[]; correctOption: number } {
-    const question = {
-      questionText: "Sample question?",
-      options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-      correctOption: 0
-    };
-    this.correctAnswer = question.correctOption; // Set the correct answer
-    return question;
-  }
+  // Subclasses should implement this method to generate a question.
+  // generateQuestion(args: { [key: string]: any }): { questionText: string; options?: string[]; correctOption?: number; correctAnswer?: number };
 
   /**
    * Method to validate the answer.
    * @param answer - The answer to validate.
    * @returns True if the answer is correct, false otherwise.
    */
-  validateAnswer(answer: number): boolean {
-    return this.correctAnswer === answer;
+  validateAnswer(answer: object): boolean {
+    console.log('Answer:', answer,JSON.stringify(answer) );
+    console.log('Correct Answer:', this.correctAnswer,JSON.stringify(this.correctAnswer)); 
+
+    return JSON.stringify(answer) === JSON.stringify(this.correctAnswer);
   }
 }
