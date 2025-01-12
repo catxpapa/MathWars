@@ -1,0 +1,8 @@
+{
+  "loading": "Loading...",
+  "countEnemies": "Count the number of enemies:",
+  "submit": "Submit",
+  "success": "Success",
+  "failure": "Failure",
+  "testMessage": "This is a test message in English."
+}
