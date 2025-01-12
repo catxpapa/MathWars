@@ -1,0 +1,8 @@
+{
+  "loading": "加载中...",
+  "countEnemies": "数数有几个敌人:",
+  "submit": "提交",
+  "success": "成功",
+  "failure": "失败",
+  "testMessage": "这是一条中文测试消息。"
+}
